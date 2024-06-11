@@ -65,6 +65,39 @@
 
 //Дано невідємне ціле число необхідно визначити факторіал.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "Введіть число: ";
+//	int n;
+//	cin >> n;
+//	int fact = 1;
+//	if (n == 0)
+//		cout << "Факторіал числа: " << n << endl;
+//	else if (n < 0)
+//		cout << "Введіть додатнє число!!!";
+//	else
+//	{
+//		int f = 1;
+//		while (n != f - 1)
+//		{
+//			fact *= f;
+//			f++;
+//		}
+//		cout << "Факторіал числа: " << n << " = " << fact << endl;
+//	}
+//
+//}
+
+//Швачка має тканину довжиною L. 
+// Вона мусить пошити подушки довжиною P.Ширина тканаини збігаєтся з шириною подушки.
+//Визначити скільки подушок вона може пошити якщо вона не вміє множити та ділити.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -73,23 +106,18 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "Введіть число: ";
-	int n;
-	cin >> n;
-	int fact = 1;
-	if (n == 0)
-		cout << "Факторіал числа: " << n << endl;
-	else if (n < 0)
-		cout << "Введіть додатнє число!!!";
-	else
+	cout << "Введіть яка довжина подушки (в метрах): \n";
+	int L;
+	cin >> L;
+	cout << "Введіть які мають бути подушки (довжина в сантиметрах): \n";
+	int P;
+	cin >> P;
+	L = L * 100;
+	int num = 0;
+	while (L > 0)
 	{
-		int f = 1;
-		while (n != f - 1)
-		{
-			fact *= f;
-			f++;
-		}
-		cout << "Факторіал числа: " << n << " = " << fact << endl;
+		num++;
+		L -= P;
 	}
-
+	cout << "Кількість подушок: \t" << num << " штук ";
 }
