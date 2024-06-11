@@ -1,6 +1,41 @@
 //ѕрограма €ка виводить на екран горизонтальну л≥н≥ю з символ≥в.
 //  ≥льк≥сть символ≥в,€кий символ, ≥ €ка л≥н≥€ (вертикальна чи гризонтальна) вказуЇ користувач.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	int num;
+//	char sumb;
+//	cout << "¬вед≥ть к≥льк≥сть символ≥в та символ (через проб≥л): ";
+//	cin >> num >> sumb;
+//	cout << "якшо л≥н≥€ горизонтальна тисни - '1', вертикальна -'0'";
+//	int line;
+//	cin >> line;
+//	if (line)
+//	{
+//		while (num)
+//		{
+//			cout << sumb;
+//			num--;
+//		}
+//	}
+//	else
+//	{
+//		while (num)
+//		{
+//			cout << sumb << endl;
+//			num--;
+//		}
+//	}
+//}
+
+//ѕрограма €ка знаходить суму вс≥х ц≥лих непарних чисел у д≥апазон≥ зазначеному користувачем.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -9,27 +44,21 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int num;
-	char sumb;
-	cout << "¬вед≥ть к≥льк≥сть символ≥в та символ (через проб≥л): ";
-	cin >> num >> sumb;
-	cout << "якшо л≥н≥€ горизонтальна тисни - '1', вертикальна -'0'";
-	int line;
-	cin >> line;
-	if (line)
+	cout << "¬вед≥ть д≥апазон ц≥лих чисел в≥д початку док≥нц€ через проб≥л: ";
+	int start, end;
+	cin >> start >> end;
+	int sum = 0;
+	if (start % 2 == 0)
 	{
-		while (num)
+		start++;
+	}
+	while (start <= end)
+	{
+		if (start % 2 != 0)
 		{
-			cout << sumb;
-			num--;
+			sum += start;
+			start += 2;
 		}
 	}
-	else
-	{
-		while (num)
-		{
-			cout << sumb << endl;
-			num--;
-		}
-	}
+	cout << "\n—ума непарних ц≥лих: " << sum << endl;
 }
