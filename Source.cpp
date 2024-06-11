@@ -36,6 +36,35 @@
 
 //ѕрограма €ка знаходить суму вс≥х ц≥лих непарних чисел у д≥апазон≥ зазначеному користувачем.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "¬вед≥ть д≥апазон ц≥лих чисел в≥д початку док≥нц€ через проб≥л: ";
+//	int start, end;
+//	cin >> start >> end;
+//	int sum = 0;
+//	if (start % 2 == 0)
+//	{
+//		start++;
+//	}
+//	while (start <= end)
+//	{
+//		if (start % 2 != 0)
+//		{
+//			sum += start;
+//			start += 2;
+//		}
+//	}
+//	cout << "\n—ума непарних ц≥лих: " << sum << endl;
+//}
+
+//ƒано нев≥дЇмне ц≥ле число необх≥дно визначити фактор≥ал.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -44,21 +73,23 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "¬вед≥ть д≥апазон ц≥лих чисел в≥д початку док≥нц€ через проб≥л: ";
-	int start, end;
-	cin >> start >> end;
-	int sum = 0;
-	if (start % 2 == 0)
+	cout << "¬вед≥ть число: ";
+	int n;
+	cin >> n;
+	int fact = 1;
+	if (n == 0)
+		cout << "‘актор≥ал числа: " << n << endl;
+	else if (n < 0)
+		cout << "¬вед≥ть додатнЇ число!!!";
+	else
 	{
-		start++;
-	}
-	while (start <= end)
-	{
-		if (start % 2 != 0)
+		int f = 1;
+		while (n != f - 1)
 		{
-			sum += start;
-			start += 2;
+			fact *= f;
+			f++;
 		}
+		cout << "‘актор≥ал числа: " << n << " = " << fact << endl;
 	}
-	cout << "\n—ума непарних ц≥лих: " << sum << endl;
+
 }
