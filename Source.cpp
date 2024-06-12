@@ -223,6 +223,34 @@
 //Отже, равлик повз 4 дні, тому сумарний шлях
 //складе 72 см.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	int distance = 0;
+//	cout << "Скільки днів повзе равлик?: ";
+//	int Day;
+//	cin >> Day;
+//	int step = 0;
+//	for (int i = 15; Day != step; i+=2)
+//	{
+//		distance += i;
+//		step++;
+//	}
+//	cout << "Дистанція яку проповз равлик за " << Day << " днів " << distance << " сантиметрів." << endl;
+//}
+
+//Для прийняття рішення студент Д.підкидав монету
+//9 разів.Якщо в результаті кількість монеток, що ви -
+//пали стороною «орел», була парним числом, приймав
+//рішення в позитивну сторону, інакше, у негативну.
+//Напишіть програму, яка 9 разів запитує число 1 або
+//0 (орел / решка) і видає відповідний результат розв`зання проблеми студента Д.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -231,15 +259,14 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int distance = 0;
-	cout << "Скільки днів повзе равлик?: ";
-	int Day;
-	cin >> Day;
-	int step = 0;
-	for (int i = 15; Day != step; i+=2)
+	int eagle = 0;
+	for (int i = 1; i <= 9; i++)
 	{
-		distance += i;
-		step++;
+		cout << i << "." << " Орел чи Решка? (1 чі 0): ";
+		int tmp;
+		cin >> tmp;
+		if (tmp)
+			eagle++;
 	}
-	cout << "Дистанція яку проповз равлик за " << Day << " днів " << distance << " сантиметрів." << endl;
+	eagle % 2 == 0 ? cout << "true" : cout << "false";
 }
