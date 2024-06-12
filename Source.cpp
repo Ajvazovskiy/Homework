@@ -126,6 +126,32 @@
 // Машини по черзі підїжджають і забирають певну кількість ящиків. 
 // Визначити кількість машин що підїхали до складу.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "Вкажіть кількість ящиків на складі: \n";
+//	int N;
+//	cin >> N;
+//	const int capacity = 60;
+//	int car = 0;
+//	while (N > 0)
+//	{
+//		car++;
+//		N -= capacity;
+//	}
+//	cout << "Потрібно " << car << " машин для розвантаження складу.";
+//}
+
+//Користувач вводить з клавіатури число більше за нуль,
+//необхідно вивести всі його цифри, починаючи з кінця.
+//Примітка.Наприклад, користувач ввів число 12345.
+//На екрані має з, явитися число, записане навпаки — 54321.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -134,15 +160,23 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "Вкажіть кількість ящиків на складі: \n";
-	int N;
-	cin >> N;
-	const int capacity = 60;
-	int car = 0;
-	do
+	cout << "Введіть число більше нуля: ";
+	int n,tmp;
+	cin >> n;
+	int m = 10;
+	int mn = 10;
+	for (int i = n; i != 0; i /= 10)
 	{
-		car++;
-		N -= capacity;
-	} while (N >= 0);
-	cout << "Потрібно " << car << " машин для розвантаження складу.";
+		if (i == n)
+		{
+			tmp = n % m;
+			cout << tmp;
+			continue;
+		}
+		m *= 10;
+		tmp = (n % m)/mn;
+		mn *= 10;
+		cout << tmp;
+		
+	}
 }
