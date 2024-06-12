@@ -187,6 +187,42 @@
 //На екрані має з, явитися повідомлення про те, що
 //сума цифр числа є 15.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "Введіть число більше нуля: ";
+//	int n, tmp;
+//	cin >> n;
+//	int m = 10, mn = 10;
+//	int sum = 0;
+//	for (int i = n; i != 0; i /= 10)
+//	{
+//		if (i == n)
+//		{
+//			tmp = n % m;
+//			sum += tmp;
+//			continue;
+//		}
+//		m *= 10;
+//		tmp = (n % m) / mn;
+//		mn *= 10;
+//		sum += tmp;
+//	}
+//	cout << "Сума чисел: " << sum << endl;
+//}
+
+//У перший день равлик проповз 15 см.Кожен наступ -
+//ний день він проповзав на 2 см далі.Визначити, яку
+//загальну відстань проповзе равлик через N днів.
+//Примітка.Наприклад, користувач ввів число 4.
+//Отже, равлик повз 4 дні, тому сумарний шлях
+//складе 72 см.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -195,23 +231,15 @@ void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "Введіть число більше нуля: ";
-	int n, tmp;
-	cin >> n;
-	int m = 10, mn = 10;
-	int sum = 0;
-	for (int i = n; i != 0; i /= 10)
+	int distance = 0;
+	cout << "Скільки днів повзе равлик?: ";
+	int Day;
+	cin >> Day;
+	int step = 0;
+	for (int i = 15; Day != step; i+=2)
 	{
-		if (i == n)
-		{
-			tmp = n % m;
-			sum += tmp;
-			continue;
-		}
-		m *= 10;
-		tmp = (n % m) / mn;
-		mn *= 10;
-		sum += tmp;
+		distance += i;
+		step++;
 	}
-	cout << "Сума чисел: " << sum << endl;
+	cout << "Дистанція яку проповз равлик за " << Day << " днів " << distance << " сантиметрів." << endl;
 }
