@@ -152,6 +152,41 @@
 //Примітка.Наприклад, користувач ввів число 12345.
 //На екрані має з, явитися число, записане навпаки — 54321.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "Введіть число більше нуля: ";
+//	int n,tmp;
+//	cin >> n;
+//	int m = 10;
+//	int mn = 10;
+//	for (int i = n; i != 0; i /= 10)
+//	{
+//		if (i == n)
+//		{
+//			tmp = n % m;
+//			cout << tmp;
+//			continue;
+//		}
+//		m *= 10;
+//		tmp = (n % m)/mn;
+//		mn *= 10;
+//		cout << tmp;
+//		
+//	}
+//}
+
+//Користувач вводить з клавіатури число, необхідно
+//показати на екран суму його цифр.
+//Примітка.Наприклад, користувач ввів число 12345.
+//На екрані має з, явитися повідомлення про те, що
+//сума цифр числа є 15.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -161,22 +196,22 @@ void main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	cout << "Введіть число більше нуля: ";
-	int n,tmp;
+	int n, tmp;
 	cin >> n;
-	int m = 10;
-	int mn = 10;
+	int m = 10, mn = 10;
+	int sum = 0;
 	for (int i = n; i != 0; i /= 10)
 	{
 		if (i == n)
 		{
 			tmp = n % m;
-			cout << tmp;
+			sum += tmp;
 			continue;
 		}
 		m *= 10;
-		tmp = (n % m)/mn;
+		tmp = (n % m) / mn;
 		mn *= 10;
-		cout << tmp;
-		
+		sum += tmp;
 	}
+	cout << "Сума чисел: " << sum << endl;
 }
