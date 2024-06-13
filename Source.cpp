@@ -274,6 +274,84 @@
 //¬ивести на дисплей календар на обраний м≥с€ць з урахуванн€м зазначеного номера дн€ тижн€ 
 // дл€ початку м≥с€ц€.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//int main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "¬вед≥ть номер м≥с€ц€: ";
+//	int mounth;
+//	cin >> mounth;
+//	cout << "«азначте номер дн€ тижн€ початку м≥с€ц€: ";
+//	int week;
+//	cin >> week;
+//	if (mounth == 1 || mounth == 3 || mounth == 5 || mounth == 7 || mounth == 8 || mounth == 10 || mounth == 12)
+//	{
+//		mounth = 31;
+//	}
+//	else if (mounth == 4 || mounth == 6 || mounth == 9 || mounth == 11)
+//	{
+//		mounth = 30;
+//	}
+//	else
+//	{
+//		mounth = 28;
+//	}
+//	cout << "ѕн\t¬т\t—р\t„т\tѕт\t—б\tЌд\n";
+//	int num = 1;
+//	for (int i = 1; i < week; i++)
+//		cout << "\t";
+//	for (int i = 1; i <= mounth; i++)
+//	{
+//		cout << i;
+//		if (num == 7 - (week - 1) || num == 14 - (week - 1) || num == 21 - (week - 1) || num == 28 - (week - 1))
+//		{
+//			cout << endl;
+//		}
+//		else
+//		{
+//			cout << "\t";
+//		}
+//		num++;
+//	}
+//
+//}
+
+//#include<iostream>
+//using namespace std;
+//
+//int main()
+//{
+//	for (int i = 0; i < 10; i++)
+//	{
+//		for (int j = 0; j < 10; j++)
+//		{
+//			if (i + j >= 9 && i >= j)
+//			{
+//				cout << "***";
+//			}
+//			else
+//			{
+//				cout << "   ";
+//			}
+//		}
+//		cout << endl;
+//	}
+//	for (int i = 0; i < 7; i++)
+//	{
+//		for (int j = 0; j < 10; j++)
+//		{
+//			cout << "###";
+//		}
+//		cout << endl;
+//	}
+//}
+
+//Ќаписати програму €ка дл€ чисел у д≥апазон≥ в≥д ј до ¬ визначаЇ к≥льк≥сть њхн≥х д≥льник≥в.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -282,40 +360,20 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "¬вед≥ть номер м≥с€ц€: ";
-	int mounth;
-	cin >> mounth;
-	cout << "«азначте номер дн€ тижн€ початку м≥с€ц€: ";
-	int week;
-	cin >> week;
-	if (mounth == 1 || mounth == 3 || mounth == 5 || mounth == 7 || mounth == 8 || mounth == 10 || mounth == 12)
+	cout << "¬изначте д≥апазон чисел (два числа через проб≥л): ";
+	int A, B;
+	cin >> A >> B;
+	for (A; A <= B ; A++)
 	{
-		mounth = 31;
-	}
-	else if (mounth == 4 || mounth == 6 || mounth == 9 || mounth == 11)
-	{
-		mounth = 30;
-	}
-	else
-	{
-		mounth = 28;
-	}
-	cout << "ѕн\t¬т\t—р\t„т\tѕт\t—б\tЌд\n";
-	int num = 1;
-	for (int i = 1; i < week; i++)
-		cout << "\t";
-	for (int i = 1; i <= mounth; i++)
-	{
-		cout << i;
-		if (num == 7 - (week - 1) || num == 14 - (week - 1) || num == 21 - (week - 1) || num == 28 - (week - 1))
+		cout << "ƒ≥льники " << A << "\t";
+		for (int j = 1; j <= A; j++)
 		{
-			cout << endl;
+			if (A % j == 0)
+			{
+				cout << j << ",";
+			}
 		}
-		else
-		{
-			cout << "\t";
-		}
-		num++;
+		
+		cout << endl;
 	}
-
 }
