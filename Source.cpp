@@ -251,22 +251,71 @@
 //Ќапиш≥ть програму, €ка 9 раз≥в запитуЇ число 1 або
 //0 (орел / решка) ≥ видаЇ в≥дпов≥дний результат розв`занн€ проблеми студента ƒ.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	int eagle = 0;
+//	for (int i = 1; i <= 9; i++)
+//	{
+//		cout << i << "." << " ќрел чи –ешка? (1 ч≥ 0): ";
+//		int tmp;
+//		cin >> tmp;
+//		if (tmp)
+//			eagle++;
+//	}
+//	eagle % 2 == 0 ? cout << "true" : cout << "false";
+//}
+
+//¬ивести на дисплей календар на обраний м≥с€ць з урахуванн€м зазначеного номера дн€ тижн€ 
+// дл€ початку м≥с€ц€.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
 
-void main()
+int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int eagle = 0;
-	for (int i = 1; i <= 9; i++)
+	cout << "¬вед≥ть номер м≥с€ц€: ";
+	int mounth;
+	cin >> mounth;
+	cout << "«азначте номер дн€ тижн€ початку м≥с€ц€: ";
+	int week;
+	cin >> week;
+	if (mounth == 1 || mounth == 3 || mounth == 5 || mounth == 7 || mounth == 8 || mounth == 10 || mounth == 12)
 	{
-		cout << i << "." << " ќрел чи –ешка? (1 ч≥ 0): ";
-		int tmp;
-		cin >> tmp;
-		if (tmp)
-			eagle++;
+		mounth = 31;
 	}
-	eagle % 2 == 0 ? cout << "true" : cout << "false";
+	else if (mounth == 4 || mounth == 6 || mounth == 9 || mounth == 11)
+	{
+		mounth = 30;
+	}
+	else
+	{
+		mounth = 28;
+	}
+	cout << "ѕн\t¬т\t—р\t„т\tѕт\t—б\tЌд\n";
+	int num = 1;
+	for (int i = 1; i < week; i++)
+		cout << "\t";
+	for (int i = 1; i <= mounth; i++)
+	{
+		cout << i;
+		if (num == 7 - (week - 1) || num == 14 - (week - 1) || num == 21 - (week - 1) || num == 28 - (week - 1))
+		{
+			cout << endl;
+		}
+		else
+		{
+			cout << "\t";
+		}
+		num++;
+	}
+
 }
