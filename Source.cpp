@@ -352,6 +352,35 @@
 
 //Написати програму яка для чисел у діапазоні від А до В визначає кількість їхніх дільників.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//int main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "Визначте діапазон чисел (два числа через пробіл): ";
+//	int A, B;
+//	cin >> A >> B;
+//	for (A; A <= B ; A++)
+//	{
+//		cout << "Дільники " << A << "\t";
+//		for (int j = 1; j <= A; j++)
+//		{
+//			if (A % j == 0)
+//			{
+//				cout << j << ",";
+//			}
+//		}
+//		
+//		cout << endl;
+//	}
+//}
+
+//Створити програму яка виводить на екран прості числа від 2 до 1000.
+// (Число називаєтся простим якщо воно ділится лише на 1 та на саме себе без залишку)
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -360,20 +389,19 @@ int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "Визначте діапазон чисел (два числа через пробіл): ";
-	int A, B;
-	cin >> A >> B;
-	for (A; A <= B ; A++)
+	for (int i = 3; i <= 1000; i++)
 	{
-		cout << "Дільники " << A << "\t";
-		for (int j = 1; j <= A; j++)
+		bool flag = true;
+		for (int j = i - 1; j > 1; j--)
 		{
-			if (A % j == 0)
+			if (i % j == 0)
 			{
-				cout << j << ",";
+				flag = false;
+				break;
 			}
 		}
-		
-		cout << endl;
+		if (flag)
+			cout << i << "\t";
+
 	}
 }
