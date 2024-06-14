@@ -381,27 +381,53 @@
 //Створити програму яка виводить на екран прості числа від 2 до 1000.
 // (Число називаєтся простим якщо воно ділится лише на 1 та на саме себе без залишку)
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//int main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	for (int i = 3; i <= 1000; i++)
+//	{
+//		bool flag = true;
+//		for (int j = i - 1; j > 1; j--)
+//		{
+//			if (i % j == 0)
+//			{
+//				flag = false;
+//				break;
+//			}
+//		}
+//		if (flag)
+//			cout << i << "\t";
+//	}
+//}
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
-
-int main()
+void main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	for (int i = 3; i <= 1000; i++)
+	cout << "Ввадіть параметри матриці (додатнє не парне число): ";
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++)
 	{
-		bool flag = true;
-		for (int j = i - 1; j > 1; j--)
+		for (int j = 0; j < n; j++)
 		{
-			if (i % j == 0)
+			if (i == j || i + j == n - 1 || i == n/2 || j == n/2)
 			{
-				flag = false;
-				break;
+				cout << "8";
+			}
+			else
+			{
+				cout << " ";
 			}
 		}
-		if (flag)
-			cout << i << "\t";
-
+		cout << "\n";
 	}
 }
