@@ -510,81 +510,117 @@
 //■ виплату по кожному співробітнику за квартал;
 //■ загальну виплату по всім співробітникам за квартал.
 
-#include<iostream>
-#include<Windows.h>
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	cout << "Вітаємо! \nДавайте облікуємо платню наших співробітників за квартал.\n";
+//	int zag = 0;
+//	int sp1{}, sp2{}, sp3{}, sp4{}, sp5{}, sp6{}, sp7{}, sp8{}, sp9{}, sp10{}, sp11{}, sp12{};
+//	for (int i = 1; i <= 12; i++)
+//	{
+//		cout << "введіть платню " << i << " співробітника за березень: ";
+//		int marth;
+//		cin >> marth;
+//		cout << "введіть платню " << i << " співробітника за квітень: ";
+//		int april;
+//		cin >> april;
+//		cout << "введіть платню " << i << " співробітника за травень: ";
+//		int may;
+//		cin >> may;
+//		switch (i)
+//		{
+//		case 1: sp1 += marth + april + may;
+//			zag += sp1;
+//			break;
+//		case 2: sp2 += marth + april + may;
+//			zag += sp2;
+//			break;
+//		case 3: sp3 += marth + april + may;
+//			zag += sp3;
+//			break;
+//		case 4: sp4 += marth + april + may;
+//			zag += sp4;
+//			break;
+//		case 5: sp5 += marth + april + may;
+//			zag += sp5;
+//			break;
+//		case 6: sp6 += marth + april + may;
+//			zag += sp6;
+//			break;
+//		case 7: sp7 += marth + april + may;
+//			zag += sp7;
+//			break;
+//		case 8: sp8 += marth + april + may;
+//			zag += sp8;
+//			break;
+//		case 9: sp9 += marth + april + may;
+//			zag += sp9;
+//			break;
+//		case 10: sp10 += marth + april + may;
+//			zag += sp10;
+//			break;
+//		case 11: sp11 += marth + april + may;
+//			zag += sp11;
+//			break;
+//		case 12: sp12 += marth + april + may;
+//			zag += sp12;
+//			break;
+//		default:
+//			break;
+//		}
+//	}
+//	cout << "Платня за квартал 1 співробітника: " << sp1 << endl;
+//	cout << "Платня за квартал 2 співробітника: " << sp2 << endl;
+//	cout << "Платня за квартал 3 співробітника: " << sp3 << endl;
+//	cout << "Платня за квартал 4 співробітника: " << sp4 << endl;
+//	cout << "Платня за квартал 5 співробітника: " << sp5 << endl;
+//	cout << "Платня за квартал 6 співробітника: " << sp6 << endl;
+//	cout << "Платня за квартал 7 співробітника: " << sp7 << endl;
+//	cout << "Платня за квартал 8 співробітника: " << sp7 << endl;
+//	cout << "Платня за квартал 9 співробітника: " << sp8 << endl;
+//	cout << "Платня за квартал 10 співробітника: " << sp9 << endl;
+//	cout << "Платня за квартал 11 співробітника: " << sp11 << endl;
+//	cout << "Платня за квартал 12 співробітника: " << sp12 << endl;
+//	cout << "Загальна сума виплати для всіх: " << zag << endl;
+//}
+
+//Дана програма, яка визначає останнє додатне і перше
+//від'ємне число в масиві. Знайти і виправити синтак-
+//сичні й логічні помилки.
+
+#include <iostream>
 using namespace std;
 
-void main()
+#include <iostream>
+using namespace std;
+
+int main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	cout << "Вітаємо! \nДавайте облікуємо платню наших співробітників за квартал.\n";
-	int zag = 0;
-	int sp1{}, sp2{}, sp3{}, sp4{}, sp5{}, sp6{}, sp7{}, sp8{}, sp9{}, sp10{}, sp11{}, sp12{};
-	for (int i = 1; i <= 12; i++)
+	const int size = 8;
+	double arr[size] = { -5.7, 6.0, 2, 0, -4.7, 6, 8.1, -4 };
+	double positive = 0;
+	for (int i = size; i >= 0; i--)
 	{
-		cout << "введіть платню " << i << " співробітника за березень: ";
-		int marth;
-		cin >> marth;
-		cout << "введіть платню " << i << " співробітника за квітень: ";
-		int april;
-		cin >> april;
-		cout << "введіть платню " << i << " співробітника за травень: ";
-		int may;
-		cin >> may;
-		switch (i)
+		if (arr[i] > 0)
 		{
-		case 1: sp1 += marth + april + may;
-			zag += sp1;
-			break;
-		case 2: sp2 += marth + april + may;
-			zag += sp2;
-			break;
-		case 3: sp3 += marth + april + may;
-			zag += sp3;
-			break;
-		case 4: sp4 += marth + april + may;
-			zag += sp4;
-			break;
-		case 5: sp5 += marth + april + may;
-			zag += sp5;
-			break;
-		case 6: sp6 += marth + april + may;
-			zag += sp6;
-			break;
-		case 7: sp7 += marth + april + may;
-			zag += sp7;
-			break;
-		case 8: sp8 += marth + april + may;
-			zag += sp8;
-			break;
-		case 9: sp9 += marth + april + may;
-			zag += sp9;
-			break;
-		case 10: sp10 += marth + april + may;
-			zag += sp10;
-			break;
-		case 11: sp11 += marth + april + may;
-			zag += sp11;
-			break;
-		case 12: sp12 += marth + april + may;
-			zag += sp12;
-			break;
-		default:
+			positive = arr[i];
 			break;
 		}
 	}
-	cout << "Платня за квартал 1 співробітника: " << sp1 << endl;
-	cout << "Платня за квартал 2 співробітника: " << sp2 << endl;
-	cout << "Платня за квартал 3 співробітника: " << sp3 << endl;
-	cout << "Платня за квартал 4 співробітника: " << sp4 << endl;
-	cout << "Платня за квартал 5 співробітника: " << sp5 << endl;
-	cout << "Платня за квартал 6 співробітника: " << sp6 << endl;
-	cout << "Платня за квартал 7 співробітника: " << sp7 << endl;
-	cout << "Платня за квартал 8 співробітника: " << sp7 << endl;
-	cout << "Платня за квартал 9 співробітника: " << sp8 << endl;
-	cout << "Платня за квартал 10 співробітника: " << sp9 << endl;
-	cout << "Платня за квартал 11 співробітника: " << sp11 << endl;
-	cout << "Платня за квартал 12 співробітника: " << sp12 << endl;
-	cout << "Загальна сума виплати для всіх: " << zag << endl;
+	double negative = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] < 0)
+		{
+			negative = arr[i];
+			break;
+		}
+	}
+	cout << "Last positive number: " << positive << endl;
+	cout << "First negatine number: " << negative << endl;
 }
