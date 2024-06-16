@@ -604,7 +604,7 @@ int main()
 	const int size = 8;
 	double arr[size] = { -5.7, 6.0, 2, 0, -4.7, 6, 8.1, -4 };
 	double positive = 0;
-	for (int i = size; i >= 0; i--)
+	for (int i = size -1; i >= 0; i--)
 	{
 		if (arr[i] > 0)
 		{
