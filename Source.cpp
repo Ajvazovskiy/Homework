@@ -724,46 +724,82 @@
 //декілька, визначити: а) номер першого такого автомобіля;
 //                     б) номер останнього такого автомобіля.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//void main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	const int size = 10;
+//	int car[size]{ 20000,35000,5000,4500,3000,3500,35000,7000,5000,4000 };
+//	int max = car[0];
+//	int index;
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (car[i] > max)
+//		{
+//			max = car[i];
+//		}
+//	}
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (car[i] == max)
+//		{
+//			index = i;
+//			cout << "Номер першого найдорожчого авто в списку: " << i + 1 << endl;
+//			break;
+//		}
+//	}
+//	bool f = true;
+//	for (int i = size - 1; i >= 0; i--)
+//	{
+//		if (car[i] == max && i !=index)
+//		{
+//			f = false;
+//			cout << "Номер останнього найдорожчого авто в списку: " << i + 1 << endl;
+//			break;
+//		}
+//	}
+//	if (f)
+//	{
+//		cout << "Це єдине найдорожче авто зі списку.\n";
+//	}
+//}
+
+//Написати програму, яка знаходить у масиві значення,
+//що повторюються два і більше разів, і виводить їх на
+//екран.
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
 
-void main()
+int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	const int size = 10;
-	int car[size]{ 20000,35000,5000,4500,3000,3500,35000,7000,5000,4000 };
-	int max = car[0];
-	int index;
+	int value[size]{ 1,3,40,2,60,60,10,60,5,40 };
+	bool check[size]{};
 	for (int i = 0; i < size; i++)
 	{
-		if (car[i] > max)
+		if (!check[i])
 		{
-			max = car[i];
+			bool f = false;
+			for (int j = i + 1; j < size; j++)
+			{
+				if (value[i] == value[j])
+				{
+					check[j] = true;
+					f = true;
+				}
+			}
+			if (f)
+			{
+				cout << value[i] << "\t";
+			}
 		}
-	}
-	for (int i = 0; i < size; i++)
-	{
-		if (car[i] == max)
-		{
-			index = i;
-			cout << "Номер першого найдорожчого авто в списку: " << i + 1 << endl;
-			break;
-		}
-	}
-	bool f = true;
-	for (int i = size - 1; i >= 0; i--)
-	{
-		if (car[i] == max && i !=index)
-		{
-			f = false;
-			cout << "Номер останнього найдорожчого авто в списку: " << i + 1 << endl;
-			break;
-		}
-	}
-	if (f)
-	{
-		cout << "Це єдине найдорожче авто зі списку.\n";
 	}
 }
