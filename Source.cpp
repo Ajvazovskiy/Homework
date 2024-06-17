@@ -593,34 +593,99 @@
 //від'ємне число в масиві. Знайти і виправити синтак-
 //сичні й логічні помилки.
 
-#include <iostream>
+//#include <iostream>
+//using namespace std;
+//
+//#include <iostream>
+//using namespace std;
+//
+//int main()
+//{
+//	const int size = 8;
+//	double arr[size] = { -5.7, 6.0, 2, 0, -4.7, 6, 8.1, -4 };
+//	double positive = 0;
+//	for (int i = size -1; i >= 0; i--)
+//	{
+//		if (arr[i] > 0)
+//		{
+//			positive = arr[i];
+//			break;
+//		}
+//	}
+//	double negative = 0;
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (arr[i] < 0)
+//		{
+//			negative = arr[i];
+//			break;
+//		}
+//	}
+//	cout << "Last positive number: " << positive << endl;
+//	cout << "First negatine number: " << negative << endl;
+//}
+
+//Вхідними даними у всіх описаних нижче завданнях
+//є масив з 10 елементів, заповнений користувачем з
+//клавіатури.
+
+// У масиві зберігається інформація про кількість мешканців кожної квартири п'ятиповерхового будинку
+//(4 під'їзди, на кожному поверсі по 2 квартири).
+//	а) за обраним номером квартири визначити кількість
+//	мешканців, а також їхніх сусідів, які проживають на одному поверсі;
+//  б) визначити сумарну кількість мешканців для кожного під'їзду;
+//  в) визначити номери квартир, де мешкають багатодітні сім'ї. Умовно будемо вважати багатодітними сім'ї, у
+//  яких кількість членів сім'ї перевищує п'ять осіб.
+
+#include<iostream>
+#include<Windows.h>
 using namespace std;
 
-#include <iostream>
-using namespace std;
-
-int main()
+void main()
 {
-	const int size = 8;
-	double arr[size] = { -5.7, 6.0, 2, 0, -4.7, 6, 8.1, -4 };
-	double positive = 0;
-	for (int i = size -1; i >= 0; i--)
-	{
-		if (arr[i] > 0)
-		{
-			positive = arr[i];
-			break;
-		}
-	}
-	double negative = 0;
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	const int size = 12;
+	int home[size]{ 1,4,5,6,10,2,5,7,3,1,3,4 };
+	int many_child[size]{};
+	cout << "Bкажіть номер квартири (від 1 - 12): ";
+	int kv;
+	cin >> kv;
+	int pid1 = 0, pid2 = 0, pid3 = 0;
+	int l = 0;
 	for (int i = 0; i < size; i++)
 	{
-		if (arr[i] < 0)
+		if (kv == i + 1)
 		{
-			negative = arr[i];
-			break;
+			cout << "Квартира № " << kv << " містить" << " - " << home[i] << " мешканців." << endl;
+			if ((i + 1) % 2 != 0)
+			{
+				cout << "Сусідня квартира №: " << kv + 1 << " містить " << " - " << home[i + 1] << " мешканців." << endl;
+			}
+			else
+			{
+				cout << "Сусідня квартира №: " << kv - 1 << " містить " << " - " << home[i - 1] << " мешканців." << endl;
+			}
+		}
+		if (i < 4)
+			pid1 += i;
+		else if (i < 8 && i >3)
+			pid2 += i;
+		else
+			pid3 += i;
+		if (home[i] > 5)
+		{
+			many_child[l] = i;
+			l++;
 		}
 	}
-	cout << "Last positive number: " << positive << endl;
-	cout << "First negatine number: " << negative << endl;
+	cout << "У першому підїзді: " << pid1 << " мешканців.\n";
+	cout << "У другому підїзді: " << pid2 << " мешканців\n";
+	cout << "У третьому підїзді: " << pid3 << " мешканців\n";
+	cout << "Номера квартир багатодітних сімей: ";
+	for (int i = 0; i < size; i++)
+	{
+		if (many_child[i] != 0)
+			cout << many_child[i] << ";";
+	}
 }
