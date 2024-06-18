@@ -772,6 +772,44 @@
 //що повторюються два і більше разів, і виводить їх на
 //екран.
 
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//int main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	const int size = 10;
+//	int value[size]{ 1,3,40,2,60,60,10,60,5,40 };
+//	bool check[size]{};
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (!check[i])
+//		{
+//			bool f = false;
+//			for (int j = i + 1; j < size; j++)
+//			{
+//				if (value[i] == value[j])
+//				{
+//					check[j] = true;
+//					f = true;
+//				}
+//			}
+//			if (f)
+//			{
+//				cout << value[i] << "\t";
+//			}
+//		}
+//	}
+//}
+
+//Заповнити два цілочисельні масиви A[10] і B[10].Сфор -
+//мувати третій масив X[20], елементи якого будуть взяті
+//з A і B в порядку :
+//а) чергування(A0, b0, a1, b1, a2, b2, ..., a9, b9);
+//б) слідування(A0, a1, a2, ..., A9, b0, b1, b2, ..., b9).
+
 #include<iostream>
 #include<Windows.h>
 using namespace std;
@@ -781,25 +819,40 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	const int size = 10;
-	int value[size]{ 1,3,40,2,60,60,10,60,5,40 };
-	bool check[size]{};
+	int A[size]{},B[size]{};
+	int X[20]{};
+	cout << "Заповніть масив 'A' цілими числами: \n";
 	for (int i = 0; i < size; i++)
 	{
-		if (!check[i])
+		cin >> A[i];
+	}
+	cout << "Заповніть масив 'B' цілими числами: \n";
+	for (int i = 0; i < size; i++)
+	{
+		cin >> B[i];
+	}
+	int count = 0;
+	for (int i = 0; i < size; i++)
+	{
+		X[count] = A[i];
+		X[count + 1] = B[i];
+		count += 2;
+	}
+	cout << "Варіант 'a': \n";
+	for (int i = 0; i < 20; i++)
+		cout << X[i] << "\t";
+	for (int i = 0; i < 20; i++)
+	{
+		if(i<=9)
 		{
-			bool f = false;
-			for (int j = i + 1; j < size; j++)
-			{
-				if (value[i] == value[j])
-				{
-					check[j] = true;
-					f = true;
-				}
-			}
-			if (f)
-			{
-				cout << value[i] << "\t";
-			}
+			X[i] = A[i];
+		}
+		else
+		{
+			X[i] = B[i - 10];
 		}
 	}
+	cout << "\nВаріант 'b': \n";
+	for (int i = 0; i < 20; i++)
+		cout << X[i] << "\t";
 }
