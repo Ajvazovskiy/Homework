@@ -810,49 +810,85 @@
 //а) чергування(A0, b0, a1, b1, a2, b2, ..., a9, b9);
 //б) слідування(A0, a1, a2, ..., A9, b0, b1, b2, ..., b9).
 
-#include<iostream>
-#include<Windows.h>
+//#include<iostream>
+//#include<Windows.h>
+//using namespace std;
+//
+//int main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	const int size = 10;
+//	int A[size]{},B[size]{};
+//	int X[20]{};
+//	cout << "Заповніть масив 'A' цілими числами: \n";
+//	for (int i = 0; i < size; i++)
+//	{
+//		cin >> A[i];
+//	}
+//	cout << "Заповніть масив 'B' цілими числами: \n";
+//	for (int i = 0; i < size; i++)
+//	{
+//		cin >> B[i];
+//	}
+//	int count = 0;
+//	for (int i = 0; i < size; i++)
+//	{
+//		X[count] = A[i];
+//		X[count + 1] = B[i];
+//		count += 2;
+//	}
+//	cout << "Варіант 'a': \n";
+//	for (int i = 0; i < 20; i++)
+//		cout << X[i] << "\t";
+//	for (int i = 0; i < 20; i++)
+//	{
+//		if(i<=9)
+//		{
+//			X[i] = A[i];
+//		}
+//		else
+//		{
+//			X[i] = B[i - 10];
+//		}
+//	}
+//	cout << "\nВаріант 'b': \n";
+//	for (int i = 0; i < 20; i++)
+//		cout << X[i] << "\t";
+//}
+
+//Дан двовимірний масив розмірністю 3×4.Необхідно
+//знайти кількість елементів, значення яких дорівнює
+//нулю.
+ #include<iostream>
+ #include<Windows.h>
 using namespace std;
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	const int size = 10;
-	int A[size]{},B[size]{};
-	int X[20]{};
-	cout << "Заповніть масив 'A' цілими числами: \n";
-	for (int i = 0; i < size; i++)
+	const int n = 3;
+	const int m = 4;
+	srand(time(0));
+	int arr[n][m];
+	for (int i = 0; i < n; i++)
 	{
-		cin >> A[i];
-	}
-	cout << "Заповніть масив 'B' цілими числами: \n";
-	for (int i = 0; i < size; i++)
-	{
-		cin >> B[i];
-	}
-	int count = 0;
-	for (int i = 0; i < size; i++)
-	{
-		X[count] = A[i];
-		X[count + 1] = B[i];
-		count += 2;
-	}
-	cout << "Варіант 'a': \n";
-	for (int i = 0; i < 20; i++)
-		cout << X[i] << "\t";
-	for (int i = 0; i < 20; i++)
-	{
-		if(i<=9)
+		for (int j = 0; j < m; j++)
 		{
-			X[i] = A[i];
+			arr[i][j] = rand() % 10;
+			cout << arr[i][j] << "\t";
 		}
-		else
+		cout << endl;
+	}
+	int num = 0;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
 		{
-			X[i] = B[i - 10];
+			if (arr[i][j] == 0)
+				num++;
 		}
 	}
-	cout << "\nВаріант 'b': \n";
-	for (int i = 0; i < 20; i++)
-		cout << X[i] << "\t";
+	cout << "Кількість елементів що дорівнює нулю в масиві: " << num << endl;
 }
