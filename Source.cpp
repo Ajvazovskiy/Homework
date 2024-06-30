@@ -860,35 +860,99 @@
 //Дан двовимірний масив розмірністю 3×4.Необхідно
 //знайти кількість елементів, значення яких дорівнює
 //нулю.
- #include<iostream>
- #include<Windows.h>
+
+
+// #include<iostream>
+// #include<Windows.h>
+//using namespace std;
+//
+//int main()
+//{
+//	SetConsoleCP(1251);
+//	SetConsoleOutputCP(1251);
+//	const int n = 3;
+//	const int m = 4;
+//	srand(time(0));
+//	int arr[n][m];
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < m; j++)
+//		{
+//			arr[i][j] = rand() % 10;
+//			cout << arr[i][j] << "\t";
+//		}
+//		cout << endl;
+//	}
+//	int num = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < m; j++)
+//		{
+//			if (arr[i][j] == 0)
+//				num++;
+//		}
+//	}
+//	cout << "Кількість елементів що дорівнює нулю в масиві: " << num << endl;
+//}
+
+//Дана квадратна матриця порядку n(n рядків, n стовпців).
+//Знайти найбільше зі значень елементів, розташованих
+//у темно - синіх частинах матриць.
+
+#include<iostream>
 using namespace std;
 
-int main()
+void main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	const int n = 3;
-	const int m = 4;
+	const int n = 5;
 	srand(time(0));
-	int arr[n][m];
+	int arr[n][n];
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++)
+		for (int j = 0; j < n; j++)
 		{
-			arr[i][j] = rand() % 10;
+			arr[i][j] = rand() % 100;
 			cout << arr[i][j] << "\t";
 		}
 		cout << endl;
 	}
-	int num = 0;
+	int max_a = arr[0][0], max_b = arr[0][0], max_v = arr[0][0], max_g = arr[0][0];
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = 0; j < m; j++)
+		for (int j = 0; j < n; j++)
 		{
-			if (arr[i][j] == 0)
-				num++;
+			if (i == j || j > i)
+			{
+				if (arr[i][j] > max_a)
+				{
+					max_a = arr[i][j];
+				}
+			}
+			if (i == j || i > j)
+			{
+				if (arr[i][j] > max_b)
+				{
+					max_b = arr[i][j];
+				}
+			}
+			if (i == j && j <= n / 2 || j > i && j <= n - (i + 1))
+			{
+				if (arr[i][j] > max_v)
+				{
+					max_v = arr[i][j];
+				}
+			}
+			if (i >= j && i + j >= n - i)
+			{
+				if (arr[i][j] > max_g)
+				{
+					max_g = arr[i][j];
+				}
+			}
 		}
 	}
-	cout << "Кількість елементів що дорівнює нулю в масиві: " << num << endl;
+	cout << "Variant 'a': " << max_a << endl;
+	cout << "Variant 'b': " << max_b << endl;
+	cout << "Variant 'v': " << max_v << endl;
+	cout << "Variant 'g':" << max_g << endl;
 }
